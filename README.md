@@ -8,8 +8,12 @@
 ---
 
 ## 🔗 Enlaces del Proyecto
-* 📊 **Dashboard Interactivo en Vercel:** [https://tu-proyecto.vercel.app](https://tu-proyecto.vercel.app)
-* 📄 **Minipaper Académico (PDF):** [Ver PDF en GitHub](paper/CHILUISA_ABIGAIL_PROYECTO_FINAL_ECONOMETRIA.pdf)
+*  **Dashboard Interactivo en Vercel:** https://proyecto-econometria-e4opdn3re-ruthchiluisa1381-3651s-projects.vercel.app
+
+*  **Minipaper Académico (PDF):**
+ [Ver PDF en GitHub](paper/CHILUISA_ABIGAIL_PROYECTO_FINAL_ECONOMETRIA.pdf)
+* **link githup** :
+https://github.com/ruthchiluisa1381-creator/PROYECTO-ECONOMETRIA.git
 
 ---
 
