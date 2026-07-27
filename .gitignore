@@ -1,0 +1,27 @@
+# .gitignore
+
+# NO subir archivos grandes de datos
+data/raw/*.csv
+data/raw/*.zip
+data/processed/*.csv
+*.csv
+*.zip
+
+# Entorno virtual
+venv/
+env/
+.venv/
+
+# Archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+*.csv
+data/raw/*.csv
+data/processed/*.csv

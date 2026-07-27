@@ -1,0 +1,2 @@
+python src/estimar_modelos.py
+python src/generar_resultados.py
