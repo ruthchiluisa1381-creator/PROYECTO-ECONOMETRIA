@@ -55,64 +55,52 @@ A nivel nacional, investigaciones publicadas por el Banco Central del Ecuador (B
 La base de datos utilizada proviene de los microdatos abiertos de la ENEMDU (diciembre 2025) recopilados por el INEC. La muestra abarca la población ocupada a nivel nacional con información completa en las variables sociodemográficas y de empleo.
 
 ## 5.1.Nombre en Variable
-	Tipo		Descripción y Categorización Código
-Informalidad (Dependiente)	
-Binaria (0/1)	
-informal	1 si labora en el Sector Informal (secemp = 2), 0 en otro caso.
-Años de Educación	Continua	anios_educ	Años de escolaridad aprobados derivados de p10a.
-Edad	Continua	edad	Edad del encuestado en años cumplidos (p03).
-
-Edad al Cuadrado	
-Continua	
-edad_sq	Captura rendimientos decrecientes/ciclo de vida (edad²).
-
-Mujer	Dicotómica (0/1)	
-mujer	
-1 si el sexo es femenino (p02 = 2), 0 si es masculino.
-
-Jefe de Hogar	Dicotómica (0/1)	
-jefe_hogar	
-1 si es el/la jefe/a de hogar (p04 = 1), 0 en otro caso.
-
-Zona Rural	Dicotómica (0/1)	
-rural	
-1 si reside en el área rural (area = 2), 0 si es urbana.
-Factor de Expansión	Ponderador	fexp	Ponderación muestral asignada por el INEC.
+	| Variable | Tipo | Nombre en Código | Descripción y Categorización |
+| :--- | :--- | :--- | :--- |
+| **Informalidad (Dependiente)** | Binaria (0/1) | `informal` | 1 si labora en el Sector Informal (`secemp = 2`), 0 en otro caso. |
+| **Años de Educación** | Continua | `anios_educ` | Años de escolaridad aprobados derivados de `p10a`. |
+| **Edad** | Continua | `edad` | Edad del encuestado en años cumplidos (`p03`). |
+| **Edad al Cuadrado** | Continua | `edad_sq` | Captura rendimientos decrecientes/ciclo de vida (`edad²`). |
+| **Mujer** | Dicotómica (0/1) | `mujer` | 1 si el sexo es femenino (`p02 = 2`), 0 si es masculino. |
+| **Jefe de Hogar** | Dicotómica (0/1) | `jefe_hogar` | 1 si es el/la jefe/a de hogar (`p04 = 1`), 0 en otro caso. |
+| **Zona Rural** | Dicotómica (0/1) | `rural` | 1 si reside en el área rural (`area = 2`), 0 si es urbana. |
+| **Factor de Expansión** | Ponderador | `fexp` | Ponderación muestral asignada por el INEC. |
 ## 5.2.Especificación Econométrica
-Dado que la variable dependiente Yi = informal es de naturaleza binaria, se formalizan los modelos probabilísticos Logit y Probit expresados como:
-P(informali = 1 | Xi) = F(β0 + β1anios_educi + β2edadi + β3edad_sqi + β4mujeri + β5jefe_hogari + β6rurali)
-Donde F(·) representa la función de distribución acumulada logística estándar en el modelo Logit:
-F(z) = Λ(z) = ez / (1 + ez)
-Y en el modelo Probit, F(·) representa la distribución normal estándar acumulada Φ(z):
-F(z) = Φ(z) = ∫-∞ (1 / √(2π)) e	dt
+## ESPECIFICACIÓN ECONOMÉTRICA
+
+Dado que la variable dependiente $Y_i = \text{informal}$ es de naturaleza binaria ($0$ o $1$), se formalizan los modelos probabilísticos **Logit** y **Probit** expresados de la siguiente forma:
+
+$$P(\text{informal}_i = 1 \mid X_i) = F(\beta_0 + \beta_1 \text{anios\_educ}_i + \beta_2 \text{edad}_i + \beta_3 \text{edad\_sq}_i + \beta_4 \text{mujer}_i + \beta_5 \text{jefe\_hogar}_i + \beta_6 \text{rural}_i)$$
+
+---
+
+###  Modelo Logit
+Donde $F(\cdot)$ representa la función de distribución acumulada logística estándar:
+
+$$F(z) = \Lambda(z) = \frac{e^z}{1 + e^z} = \frac{1}{1 + e^{-z}}$$
+
+---
+
+###  Modelo Probit
+Donde $F(\cdot)$ representa la función de distribución acumulada normal estándar:
+
+$$F(z) = \Phi(z) = \int_{-\infty}^{z} \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \, dt$$
 
 ## 6.RESULTADOS E INTERPRETACIÓN ECONOMÉTRICA
 
 La estimación de los modelos se realizó aplicando Máxima Verosimilitud con pesos de ponderación poblacional (fexp). A continuación se presentan las estimaciones paramétricas y las métricas de bondad de ajuste.
-Tabla 1: Resultados de la Estimación Econométrica (Logit vs. Probit)
+## Tabla 1: Resultados de la Estimación Econométrica (Logit vs. Probit)
+| Variable Predictora | Modelo Logit (Coeficiente) | Modelo Probit (Coeficiente) | Efectos Marginales Promedio (AME) | Significancia (p-value) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Años de Educación (`anios_educ`)** | `-0.1425` | `-0.0861` | `-0.0312` | `p < 0.001 ***` |
+| **Edad (`edad`)** | `-0.0482` | `-0.0291` | `-0.0105` | `p < 0.001 ***` |
+| **Edad al Cuadrado (`edad_sq`)** | `0.0006` | `0.0003` | `0.0001` | `p < 0.001 ***` |
+| **Mujer (`mujer`)** | `0.2841` | `0.1712` | `0.0621` | `p < 0.001 ***` |
+| **Jefe de Hogar (`jefe_hogar`)** | `-0.3105` | `-0.1884` | `-0.0680` | `p < 0.001 ***` |
+| **Zona Rural (`rural`)** | `0.8124` | `0.4912` | `0.1775` | `p < 0.001 ***` |
+| **Constante ($\beta_0$)** | `1.1250` | `0.68010` | `--` | `p < 0.001 ***` |
 
-Variable Predictora	Modelo Logit (Coeficiente)	Modelo Probit (Coeficiente)	Efectos Marginales Promedio (AME)	Significancia (p-value)
-Años de Educación (anios_educ)	
--0.1425	
--0.0861	
--0.0312	
-p < 0.001 ***
-Edad (edad)	-0.0482	-0.0291	-0.0105	p < 0.001 ***
-Edad al Cuadrado (edad_sq)	
-0.0006	
-0.0003	
-0.0001	
-p < 0.001 ***
-Mujer (mujer)	0.2841	0.1712	0.0621	p < 0.001 ***
-Jefe de Hogar (jefe_hogar)	
--0.3105	
--0.1884	
--0.0680	
-p < 0.001 ***
-Zona Rural (rural)	0.8124	0.4912	0.1775	p < 0.001 ***
-Constante (β0)	1.1250	0.68010	--	p < 0.001 ***
-Tabla 1: Resultados de la Estimación Econométrica (Logit vs. Probit)
-Nota: *** p<0.01, ** p<0.05, * p<0.10. Ponderado por factor de expansión ENEMDU. Criterios de Selección: Logit AIC = 48,120.4; Probit AIC = 48,155.8.
+*Nota: *** p<0.01, ** p<0.05, * p<0.10. Ponderado por factor de expansión ENEMDU. Criterios de Selección: Logit AIC = 48,120.4; Probit AIC = 48,155.8.*
 ## 6.1.Interpretación de Coeficientes y Efectos Marginales (AME)
 •Educación: Cada año adicional de escolaridad reduce la probabilidad de trabajar en el sector informal en aproximadamente 3.12 puntos porcentuales (AME = -0.0312), manteniendo el resto de variables constantes. Esto confirma el rol protector de la inversión en educación.
 •Ruralidad: Residir en el área rural incrementa la probabilidad de ser informal en 17.75 puntos porcentuales (AME = 0.1775) respecto a la zona urbana, reflejando la falta de estructura empresarial formal en el campo.
