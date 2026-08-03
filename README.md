@@ -136,7 +136,7 @@ Limitaciones:
 El estudio presenta limitaciones derivadas de la naturaleza transversal de la ENEMDU, lo cual impide capturar efectos dinámicos o de causalidad en el tiempo. Asimismo, existen variables no observadas como las habilidades blandas y las redes de contactos informales que podrían generar sesgo de variable omitida.
 ## 8.DECLARACIÓN DEL USO DE INTELIGENCIA ARTIFICIAL
 Transparencia e Integridad Académica: En el desarrollo de este trabajo se utilizaron herramientas de Inteligencia Artificial Generativa (ChatGPT / Gemini) exclusivamente como apoyo en la estructuración de código en Python (librerías pandas y statsmodels), corrección de sintaxis en HTML/CSS para la generación del PDF y asistencia en el formato de tablas. Toda la interpretación econométrica, selección de variables, validación estadística y redacción de conclusiones fueron realizadas íntegramente por el autor.
-## 🗄️ . Fuente de Datos y Variables
+## 🗄️ 9. Fuente de Datos y Variables
 
 * **Fuente:** Instituto Nacional de Estadística y Censos (INEC) — Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU), Diciembre 2025.
 * **Unidad de Observación:** Personas ocupadas de 15 años o más.
@@ -150,18 +150,26 @@ Transparencia e Integridad Académica: En el desarrollo de este trabajo se utili
 
 ---
 
-## 📉 3. Metodología Econométrica y Resultados
+## 📉 10. Metodología Econométrica y Resultados
 
 Se aplicaron modelos de respuesta binaria (**Logit** y **Probit**). Tras evaluar los criterios de información, el modelo **Logit** presentó un menor AIC, indicando un mejor ajuste.
 
-### Resumen de Efectos Marginales Promedio (AME - Logit)
+### 11.Resumen de Efectos Marginales Promedio (AME - Logit)
 * **Educación:** Cada año adicional de educación reduce la probabilidad de informalidad aproximadamente en **3.1%**.
 * **Género:** Ser mujer incrementa la probabilidad de trabajo informal en aproximadamente **4.5%**, ceteris paribus.
 * **Área:** Residir en el área rural aumenta la probabilidad de informalidad significativamente.
 
 ---
+## 12. REFERENCIAS BIBLIOGRÁFICAS 
 
-## 🛠️ 4. Estructura del Repositorio
+Banco Central del Ecuador (BCE). (2022). Reporte de empleo y mercado laboral ecuatoriano. Quito, Ecuador.
+Comisión Económica para América Latina y el Caribe (CEPAL). (2024). Panorama Social de América Latina y el Caribe: Desafíos del mercado de trabajo. Santiago de Chile.
+Instituto Nacional de Estadística y Censos (INEC). (2025). Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU) - Diciembre 2025: Metodología y Tabulados Oficiales. Quito, Ecuador.
+Mincer, J. (1974). Schooling, Experience, and Earnings. National Bureau of Economic Research (NBER), New York.
+Organización Internacional del Trabajo (OIT). (2023). La informalidad laboral en América Latina y el Caribe: Diagnósticos y políticas . Ginebra
+
+
+## 🛠️ 13. Estructura del Repositorio
 
 ```text
 proyecto-econometria/
@@ -180,10 +188,5 @@ proyecto-econometria/
 ├── prompts/                  # Registro transparente de uso de IA
 ├── requirements.txt          # Dependencias del proyecto
 └── README.md
-## REFERENCIAS BIBLIOGRÁFICAS 
 
-Banco Central del Ecuador (BCE). (2022). Reporte de empleo y mercado laboral ecuatoriano. Quito, Ecuador.
-Comisión Económica para América Latina y el Caribe (CEPAL). (2024). Panorama Social de América Latina y el Caribe: Desafíos del mercado de trabajo. Santiago de Chile.
-Instituto Nacional de Estadística y Censos (INEC). (2025). Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU) - Diciembre 2025: Metodología y Tabulados Oficiales. Quito, Ecuador.
-Mincer, J. (1974). Schooling, Experience, and Earnings. National Bureau of Economic Research (NBER), New York.
-Organización Internacional del Trabajo (OIT). (2023). La informalidad laboral en América Latina y el Caribe: Diagnósticos y políticas . Ginebra
+
